@@ -1,0 +1,211 @@
+/* === Contact / Reservation Section === */
+.contact {
+    padding: 5rem 0;
+    background-color: var(--light-bg);
+}
+
+.contact-content {
+    background: var(--white);
+    border-radius: var(--radius);
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    box-shadow: var(--shadow-lg);
+}
+
+.contact-info {
+    background-color: var(--secondary);
+    color: var(--white);
+    padding: 3rem;
+}
+
+.contact-info h3 {
+    color: var(--white);
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.contact-desc {
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 2.5rem;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.info-items {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.info-item {
+    display: flex;
+    gap: 1rem;
+}
+
+.icon-box {
+    width: 38px;
+    height: 38px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--primary-light);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    flex-shrink: 0;
+}
+
+.info-text strong {
+    display: block;
+    margin-bottom: 0.2rem;
+    font-size: 1rem;
+    font-family: var(--font-heading);
+    font-weight: 400;
+}
+
+.info-text p {
+    color: rgba(255, 255, 255, 0.65);
+    font-size: 0.9rem;
+}
+
+.contact-form {
+    padding: 2.5rem;
+}
+
+.contact-form h3 {
+    font-size: 1.6rem;
+    margin-bottom: 1.5rem;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+    margin-bottom: 1.25rem;
+}
+
+.form-group {
+    margin-bottom: 1.25rem;
+}
+
+.form-group.full-width {
+    grid-column: 1 / -1;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-dark);
+    margin-bottom: 0.4rem;
+}
+
+.input-with-icon {
+    position: relative;
+}
+
+.input-with-icon i {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-muted);
+}
+
+.input-with-icon input,
+.input-with-icon select {
+    padding-left: 2.75rem !important;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 0.85rem 1rem;
+    border: 1px solid #ddd;
+    border-radius: var(--radius-sm);
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: var(--text-dark);
+    background-color: #f9f9fa;
+    transition: 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+    background-color: var(--white);
+    box-shadow: 0 0 0 3px rgba(139, 0, 0, 0.1);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* === Google Maps Section === */
+.map-section {
+    background: var(--white);
+}
+
+.map-header {
+    padding: 3rem 0 1.5rem;
+    text-align: center;
+    background: var(--light-bg);
+}
+
+.map-wrapper {
+    position: relative;
+    width: 100%;
+    line-height: 0;
+    border-top: 3px solid var(--primary);
+}
+
+.map-wrapper iframe {
+    display: block;
+}
+
+/* === Form Success / Error States === */
+.form-success {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+    border-radius: var(--radius-sm);
+    padding: 1rem 1.25rem;
+    margin-top: 1rem;
+    animation: fadeUp 0.4s ease-out forwards;
+}
+
+.form-success i {
+    font-size: 1.5rem;
+    color: #28a745;
+    flex-shrink: 0;
+}
+
+.form-success strong {
+    display: block;
+    color: #155724;
+    font-size: 1rem;
+    margin-bottom: 0.1rem;
+}
+
+.form-success span {
+    color: #155724;
+    font-size: 0.9rem;
+}
+
+.form-error {
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    color: #721c24;
+    border-radius: var(--radius-sm);
+    padding: 0.85rem 1rem;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    animation: fadeUp 0.4s ease-out forwards;
+}
