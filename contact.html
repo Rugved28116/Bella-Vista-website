@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Contact Bella Vista - Make a reservation and find our authentically Italian Restaurant location.">
+    <title>Contact & Reservations | Bella Vista</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="style.css">
+    <!-- Add padding specifically for non-hero pages to offset the fixed header -->
+    <style>
+        main {
+            padding-top: 100px;
+            background-color: var(--light-bg);
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header scrolled">
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <h1>Bella Vista</h1>
+                    <span class="tagline">Authentic Italian Cuisine</span>
+                </div>
+
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="menu.html">Menu</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+
+                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle Navigation">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Mobile Nav Overlay -->
+    <div class="nav-overlay" id="navOverlay"></div>
+
+    <main>
+        <!-- Contact Section -->
+        <section id="Contact" class="contact reveal active">
+            <div class="container">
+                <div class="section-header">
+                    <span class="subtitle">Join Us</span>
+                    <h2 class="section-title">Reserve Your Table</h2>
+                    <div class="divider"></div>
+                </div>
+
+                <div class="contact-content card-hover">
+                    <div class="contact-info">
+                        <h3>Get in Touch</h3>
+                        <p class="contact-desc">We look forward to welcoming you to Bella Vista. For large parties or
+                            private events, please contact us directly.</p>
+
+                        <div class="info-items">
+                            <div class="info-item">
+                                <div class="icon-box"><i class="fas fa-map-marker-alt"></i></div>
+                                <div class="info-text">
+                                    <strong>Location</strong>
+                                    <p>47, Model Colony, Kothrud, Pune, Maharashtra 411029</p>
+                                </div>
+                            </div>
+
+                            <div class="info-item">
+                                <div class="icon-box"><i class="fas fa-phone-alt"></i></div>
+                                <div class="info-text">
+                                    <strong>Reservations</strong>
+                                    <p>(555) 123-4567</p>
+                                </div>
+                            </div>
+
+                            <div class="info-item">
+                                <div class="icon-box"><i class="fas fa-envelope"></i></div>
+                                <div class="info-text">
+                                    <strong>Email</strong>
+                                    <p>info@bellavistarestaurant.com</p>
+                                </div>
+                            </div>
+
+                            <div class="info-item">
+                                <div class="icon-box"><i class="far fa-clock"></i></div>
+                                <div class="info-text">
+                                    <strong>Opening Hours</strong>
+                                    <p>Mon-Thu: 11AM - 10PM<br>Fri-Sun: 11AM - 11PM</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-form">
+                        <h3>Book a Table</h3>
+                        <form action="#" id="reservationForm">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="name">Full Name</label>
+                                    <div class="input-with-icon">
+                                        <i class="far fa-user"></i>
+                                        <input type="text" id="name" class="name" placeholder="John Doe" required>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="email">Email Address</label>
+                                    <div class="input-with-icon">
+                                        <i class="far fa-envelope"></i>
+                                        <input type="email" id="email" class="email" placeholder="john@example.com"
+                                            required>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="phone">Phone Number</label>
+                                    <div class="input-with-icon">
+                                        <i class="fas fa-phone"></i>
+                                        <input type="tel" id="phone" class="phone" placeholder="(555) 000-0000"
+                                            required>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="guests">Guests</label>
+                                    <div class="input-with-icon">
+                                        <i class="fas fa-users"></i>
+                                        <select name="guests" id="guests" required>
+                                            <option value="" disabled selected>Number of Guests</option>
+                                            <option value="1">1 Person</option>
+                                            <option value="2">2 People</option>
+                                            <option value="3">3 People</option>
+                                            <option value="4">4 People</option>
+                                            <option value="5">5 People</option>
+                                            <option value="6+">6+ People</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="date">Date</label>
+                                    <div class="input-with-icon">
+                                        <i class="far fa-calendar-alt"></i>
+                                        <input type="date" id="date" class="date" required>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="time">Time</label>
+                                    <div class="input-with-icon">
+                                        <i class="far fa-clock"></i>
+                                        <select name="time" id="time" required>
+                                            <option value="" disabled selected>Select Time</option>
+                                            <option value="18:00">06:00 PM</option>
+                                            <option value="18:30">06:30 PM</option>
+                                            <option value="19:00">07:00 PM</option>
+                                            <option value="19:30">07:30 PM</option>
+                                            <option value="20:00">08:00 PM</option>
+                                            <option value="20:30">08:30 PM</option>
+                                            <option value="21:00">09:00 PM</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group full-width">
+                                <label for="message">Special Requests</label>
+                                <textarea name="message" id="message" rows="3"
+                                    placeholder="Dietary requirements or special requests..."></textarea>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary btn-block" id="submitBtn">Confirm Reservation
+                                <i class="fas fa-arrow-right"></i></button>
+
+                            <!-- Success message (hidden by default) -->
+                            <div class="form-success" id="formSuccess" style="display:none;">
+                                <i class="fas fa-check-circle"></i>
+                                <div>
+                                    <strong>Reservation Received!</strong>
+                                    <span>A confirmation email has been sent. We'll see you soon! 🍝</span>
+                                </div>
+                            </div>
+
+                            <!-- Error message (hidden by default) -->
+                            <div class="form-error" id="formError" style="display:none;"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Google Maps Section -->
+        <section class="map-section">
+            <div class="map-header">
+                <div class="container">
+                    <span class="subtitle">Find Us</span>
+                    <h2 class="section-title" style="color:var(--secondary)">Our Location</h2>
+                    <div class="divider" style="margin-bottom:0"></div>
+                </div>
+            </div>
+            <div class="map-wrapper">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3783.7457843617087!2d73.8052!3d18.5074!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2bf5b3c4c2e1b%3A0x9f0a3f2d3a4c5e6f!2sKothrud%2C%20Pune%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1710000000000!5m2!1sen!2sin"
+                    width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade" title="Bella Vista Restaurant - Kothrud, Pune"></iframe>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section brand-section">
+                    <h2>Bella Vista</h2>
+                    <span class="tagline">Authentic Italian Cuisine</span>
+                    <p class="brand-desc">Experience the true taste of Italy with every bite. Crafted with passion,
+                        served with love.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link" aria-label="TripAdvisor"><i class="fab fa-tripadvisor"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Explore</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="menu.html"><i class="fas fa-chevron-right"></i> Our Menu</a></li>
+                        <li><a href="about.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                        <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Reservations</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Newsletter</h4>
+                    <p>Subscribe to receive updates, access to exclusive deals, and more.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Enter your email address" required aria-label="Email Address">
+                        <button type="submit" class="btn btn-primary">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; <span id="year">2024</span> Bella Vista Restaurant. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // ─── API Config ────────────────────────────────────────────────
+        const API_BASE = 'http://localhost:5000/api';
+
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Mobile Drawer Toggle
+        const mobileBtn = document.getElementById('mobileMenuBtn');
+        const nav = document.querySelector('.nav-links');
+        const overlay = document.getElementById('navOverlay');
+        const icon = mobileBtn ? mobileBtn.querySelector('i') : null;
+
+        function openNav() {
+            nav.classList.add('active');
+            overlay.classList.add('active');
+            if (icon) { icon.classList.replace('fa-bars', 'fa-times'); }
+            document.body.style.overflow = 'hidden';
+        }
+        function closeNav() {
+            nav.classList.remove('active');
+            overlay.classList.remove('active');
+            if (icon) { icon.classList.replace('fa-times', 'fa-bars'); }
+            document.body.style.overflow = '';
+        }
+
+        if (mobileBtn) {
+            mobileBtn.addEventListener('click', () => nav.classList.contains('active') ? closeNav() : openNav());
+        }
+        if (overlay) { overlay.addEventListener('click', closeNav); }
+        nav && nav.querySelectorAll('a').forEach(a => a.addEventListener('click', closeNav));
+
+        // ─── Reservation Form → POST /api/reservations ─────────────────
+        const form = document.getElementById('reservationForm');
+        const submitBtn = form ? form.querySelector('button[type="submit"]') : null;
+        const successMsg = document.getElementById('formSuccess');
+        const errorMsg = document.getElementById('formError');
+
+        if (form) {
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+                if (errorMsg) errorMsg.style.display = 'none';
+
+                const body = {
+                    name: form.querySelector('#name').value,
+                    email: form.querySelector('#email').value,
+                    phone: form.querySelector('#phone').value,
+                    guests: form.querySelector('#guests').value,
+                    date: form.querySelector('#date').value,
+                    time: form.querySelector('#time').value,
+                    message: form.querySelector('#message').value,
+                };
+
+                try {
+                    const res = await fetch(`${API_BASE}/reservations`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(body),
+                    });
+                    const data = await res.json();
+
+                    if (data.success) {
+                        form.reset();
+                        submitBtn.style.display = 'none';
+                        successMsg.style.display = 'flex';
+                    } else {
+                        throw new Error(data.message);
+                    }
+                } catch (err) {
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = 'Confirm Reservation <i class="fas fa-arrow-right"></i>';
+                    if (errorMsg) {
+                        errorMsg.textContent = err.message || 'Something went wrong. Please try again.';
+                        errorMsg.style.display = 'block';
+                    }
+                }
+            });
+        }
+
+        // ─── Newsletter Form → POST /api/newsletter ────────────────────
+        const newsletterForm = document.querySelector('.newsletter-form');
+        if (newsletterForm) {
+            newsletterForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const emailInput = newsletterForm.querySelector('input[type="email"]');
+                const btn = newsletterForm.querySelector('button');
+                btn.disabled = true;
+                btn.textContent = '...';
+
+                try {
+                    const res = await fetch(`${API_BASE}/newsletter`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ email: emailInput.value }),
+                    });
+                    const data = await res.json();
+                    btn.textContent = data.success ? '✅ Done!' : data.message;
+                    if (data.success) emailInput.value = '';
+                } catch {
+                    btn.textContent = '❌ Error';
+                } finally {
+                    setTimeout(() => { btn.disabled = false; btn.textContent = 'Subscribe'; }, 3000);
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>

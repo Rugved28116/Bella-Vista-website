@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="About Bella Vista - Discover the history and passion behind our Authentic Italian Restaurant.">
+    <title>About Us | Bella Vista</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="style.css">
+    <!-- Add padding specifically for non-hero pages to offset the fixed header -->
+    <style>
+        main {
+            padding-top: 100px;
+            background-color: var(--white);
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header scrolled">
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <h1>Bella Vista</h1>
+                    <span class="tagline">Authentic Italian Cuisine</span>
+                </div>
+
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="menu.html">Menu</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+
+                <button class="mobile-menu-btn" aria-label="Toggle Navigation">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- About Section -->
+        <section id="About" class="about reveal active">
+            <div class="container">
+                <div class="about-content">
+                    <div class="about-image-wrapper">
+                        <div class="about-image">
+                            <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.1.0&auto=format&fit=crop&q=80&w=1170"
+                                alt="Restaurant Interior">
+                        </div>
+                        <div class="experience-badge">
+                            <span class="years">35+</span>
+                            <span class="text">Years of<br>Excellence</span>
+                        </div>
+                    </div>
+                    <div class="about-text">
+                        <span class="subtitle">Our Heritage</span>
+                        <h2 class="section-title">A Taste of Tradition</h2>
+                        <div class="divider-left"></div>
+                        <p class="intro">Founded in 2026 by Rugved and Krishna, Bella Vista has been serving authentic
+                            Italian cuisine for over three decades.</p>
+                        <p>Our passion for traditional recipes and fresh ingredients has made us a beloved destination
+                            for food lovers. Every dish is prepared with love and attention to detail, using recipes
+                            passed down through generations of Italian chefs.</p>
+                        <p>We believe that dining is not just about food, but the experience of sharing joy with family
+                            and friends around the table.</p>
+
+                        <!-- Extended About Text for standalone page -->
+                        <p style="margin-top: 1.5rem; color: var(--text-muted);">From the rolling hills of Tuscany to
+                            the sunny coasts of Amalfi, our ingredients are sourced with the utmost care. We import our
+                            olive oil directly from small-batch producers in Italy, while our produce is locally grown
+                            by organic farmers right here in the community.</p>
+
+                        <a href="contact.html" class="btn btn-outline" style="margin-top: 2rem;">Visit Us Today</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section brand-section">
+                    <h2>Bella Vista</h2>
+                    <span class="tagline">Authentic Italian Cuisine</span>
+                    <p class="brand-desc">Experience the true taste of Italy with every bite. Crafted with passion,
+                        served with love.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link" aria-label="TripAdvisor"><i class="fab fa-tripadvisor"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Explore</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="menu.html"><i class="fas fa-chevron-right"></i> Our Menu</a></li>
+                        <li><a href="about.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                        <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Reservations</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Newsletter</h4>
+                    <p>Subscribe to receive updates, access to exclusive deals, and more.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Enter your email address" required aria-label="Email Address">
+                        <button type="submit" class="btn btn-primary">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; <span id="year">2024</span> Bella Vista Restaurant. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        const mobileBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+
+        if (mobileBtn) {
+            mobileBtn.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
+        }
+    </script>
+</body>
+
+</html>

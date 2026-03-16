@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Bella Vista - Our Menu. Authentic Italian Restaurant serving fresh pasta, wood-fired pizzas, and traditional Italian cuisine.">
+    <title>Menu | Bella Vista</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="style.css">
+    <!-- Add padding specifically for non-hero pages to offset the fixed header -->
+    <style>
+        main {
+            padding-top: 100px;
+            background-color: var(--light-bg);
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header scrolled">
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <h1>Bella Vista</h1>
+                    <span class="tagline">Authentic Italian Cuisine</span>
+                </div>
+
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="menu.html">Menu</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+
+                <button class="mobile-menu-btn" aria-label="Toggle Navigation">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="Menu" class="menu reveal active">
+            <div class="container">
+                <div class="section-header">
+                    <span class="subtitle">Culinary Delights</span>
+                    <h2 class="section-title">Our Menu</h2>
+                    <div class="divider"></div>
+                    <p class="section-description">Discover our carefully crafted dishes, made with the finest seasonal
+                        ingredients and traditional recipes passed down through generations.</p>
+                </div>
+
+                <!-- Category Filters -->
+                <div class="menu-filters">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="appetizers">Appetizers</button>
+                    <button class="filter-btn" data-filter="mains">Main Courses</button>
+                    <button class="filter-btn" data-filter="desserts">Desserts</button>
+                </div>
+
+                <div class="menu-grid">
+                    <!-- Appetizers -->
+                    <div class="menu-card card-hover" data-category="appetizers">
+                        <div class="menu-card-img">
+                            <img src="bruschetta.png" alt="Bruschetta Italiana">
+                            <span class="price-badge">$14</span>
+                        </div>
+                        <div class="menu-card-content">
+                            <h4>Bruschetta Italiana</h4>
+                            <p>Fresh heirloom tomatoes, fragrant basil, and buffalo mozzarella on artisanal toasted
+                                bread, drizzled with aged balsamic.</p>
+                        </div>
+                    </div>
+
+                    <div class="menu-card card-hover" data-category="appetizers">
+                        <div class="menu-card-img">
+                            <img src="https://images.unsplash.com/photo-1541529086526-db283c563270?auto=format&fit=crop&q=80&w=800"
+                                alt="Antipasto">
+                            <span class="price-badge">$24</span>
+                        </div>
+                        <div class="menu-card-content">
+                            <h4>Antipasto Platter</h4>
+                            <p>Premium selection of cured meats, artisanal cheeses, marinated olives, and roasted
+                                Mediterranean vegetables.</p>
+                        </div>
+                    </div>
+
+                    <!-- Mains -->
+                    <div class="menu-card card-hover" data-category="mains">
+                        <div class="menu-card-img">
+                            <img src="truffle-risotto.png" alt="Truffle Risotto">
+                            <span class="price-badge">$28</span>
+                        </div>
+                        <div class="menu-card-content">
+                            <h4>Truffle Risotto</h4>
+                            <p>Creamy Arborio rice with wild mushrooms, finished with white truffle oil and
+                                Parmigiano-Reggiano.</p>
+                        </div>
+                    </div>
+
+                    <div class="menu-card card-hover" data-category="mains">
+                        <div class="menu-card-img">
+                            <img src="https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?auto=format&fit=crop&q=80&w=800"
+                                alt="Osso Buco">
+                            <span class="price-badge">$36</span>
+                        </div>
+                        <div class="menu-card-content">
+                            <h4>Osso Buco</h4>
+                            <p>Slow-braised veal shank in a rich wine and tomato reduction, served over saffron risotto.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="menu-card card-hover" data-category="mains">
+                        <div class="menu-card-img">
+                            <img src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&q=80&w=800"
+                                alt="Margherita Pizza">
+                            <span class="price-badge">$20</span>
+                        </div>
+                        <div class="menu-card-content">
+                            <h4>Margherita Verace</h4>
+                            <p>Wood-fired pizza with San Marzano tomato sauce, fresh buffalo mozzarella, and fresh basil
+                                leaves.</p>
+                        </div>
+                    </div>
+
+                    <!-- Desserts -->
+                    <div class="menu-card card-hover" data-category="desserts">
+                        <div class="menu-card-img">
+                            <img src="classic-tiramisu.png" alt="Tiramisu">
+                            <span class="price-badge">$12</span>
+                        </div>
+                        <div class="menu-card-content">
+                            <h4>Classic Tiramisu</h4>
+                            <p>Espresso-soaked ladyfingers layered with light mascarpone cream and dusted with premium
+                                cocoa powder.</p>
+                        </div>
+                    </div>
+
+                    <div class="menu-card card-hover" data-category="desserts">
+                        <div class="menu-card-img">
+                            <img src="vanilla-panna-cotta.png" alt="Panna Cotta">
+                            <span class="price-badge">$10</span>
+                        </div>
+                        <div class="menu-card-content">
+                            <h4>Vanilla Panna Cotta</h4>
+                            <p>Silky Madagascar vanilla bean custard topped with a vibrant mixed berry compote.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Dynamic Active Navigation Link
+        document.addEventListener('DOMContentLoaded', () => {
+            const navLinks = document.querySelectorAll('.nav-links a');
+            const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+
+            navLinks.forEach(link => {
+                const linkPath = link.getAttribute('href');
+                if (currentPath === linkPath) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Mobile menu toggle
+        const mobileBtn = document.querySelector('.mobile-menu-btn');
+        const nav = document.querySelector('.nav-links');
+
+        if (mobileBtn) {
+            mobileBtn.addEventListener('click', () => {
+                nav.classList.toggle('active');
+            });
+        }
+
+        // Menu Filtering Logic
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const menuCards = document.querySelectorAll('.menu-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterBtns.forEach(b => b.classList.remove('active'));
+                // Add active class to clicked button
+                btn.classList.add('active');
+
+                const filterValue = btn.getAttribute('data-filter');
+
+                menuCards.forEach(card => {
+                    card.style.opacity = '0';
+                    card.style.transform = 'translateY(20px)';
+
+                    setTimeout(() => {
+                        if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+                            card.style.display = 'block';
+                            setTimeout(() => {
+                                card.style.opacity = '1';
+                                card.style.transform = 'translateY(0)';
+                            }, 50);
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    }, 300); // Wait for fade out animation
+                });
+            });
+        });
+
+        // Header scroll effect
+        const header = document.querySelector('.header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+
+</html>
