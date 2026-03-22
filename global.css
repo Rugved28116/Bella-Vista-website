@@ -122,12 +122,12 @@ img {
 /* === Buttons === */
 .btn {
     display: inline-block;
-    padding: 0.9rem 2.2rem;
-    border-radius: 50px;
+    padding: 0.8rem 2rem;
+    border-radius: 4px;
     font-weight: 500;
     font-family: var(--font-body);
-    letter-spacing: 1px;
-    transition: 0.3s ease;
+    letter-spacing: 0;
+    transition: 0.2s;
     cursor: pointer;
     border: none;
     font-size: 0.95rem;
@@ -140,9 +140,9 @@ img {
 
 @media (max-width: 768px) {
     .btn {
-        padding: 1rem 2rem;
-        font-size: 1rem;
-        min-height: 48px;
+        padding: 0.9rem 1.8rem;
+        font-size: 0.9rem;
+        min-height: 44px;
     }
 }
 
@@ -152,34 +152,30 @@ img {
 }
 
 .btn-primary:hover {
-    background-color: var(--primary-light);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(139, 0, 0, 0.3);
+    background-color: var(--primary-dark);
     color: var(--white);
 }
 
 .btn-secondary {
     background-color: transparent;
     color: var(--white);
-    border: 1px solid rgba(255, 255, 255, 0.6);
+    border: 2px solid var(--white);
 }
 
 .btn-secondary:hover {
     background-color: var(--white);
     color: var(--secondary);
-    transform: translateY(-2px);
 }
 
 .btn-outline {
     background-color: transparent;
     color: var(--primary);
-    border: 1px solid var(--primary);
+    border: 2px solid var(--primary);
 }
 
 .btn-outline:hover {
     background-color: var(--primary);
     color: var(--white);
-    transform: translateY(-2px);
 }
 
 .btn-block {
@@ -188,24 +184,23 @@ img {
 
 /* === Card Hover === */
 .card-hover {
-    transition: 0.3s ease;
+    transition: ease 0.2s;
 }
 
 .card-hover:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 /* === Fade In Animation === */
 .reveal {
-    animation: fadeUp 0.8s ease-out forwards;
+    animation: fadeUp 0.6s ease-out forwards;
     opacity: 0;
 }
 
 @keyframes fadeUp {
     from {
         opacity: 0;
-        transform: translateY(20px);
+        transform: translateY(15px);
     }
 
     to {
@@ -348,20 +343,20 @@ img {
 }
 
 .social-link {
-    width: 38px;
-    height: 38px;
-    background-color: rgba(255, 255, 255, 0.08);
+    width: 36px;
+    height: 36px;
+    background-color: rgba(255, 255, 255, 0.1);
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 50%;
+    border-radius: 4px;
     color: var(--white);
-    transition: 0.3s ease;
+    transition: 0.2s;
 }
 
 .social-link:hover {
     background-color: var(--primary);
-    transform: translateY(-2px);
+    color: var(--white);
 }
 
 .footer-section h4 {

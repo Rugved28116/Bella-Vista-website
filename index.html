@@ -146,37 +146,46 @@
             });
         });
 
-        // Mobile Drawer Toggle
-        const mobileBtn = document.getElementById('mobileMenuBtn');
-        const nav = document.querySelector('.nav-links');
+        // Mobile menu toggle
+        const menuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.querySelector('.nav-links');
         const overlay = document.getElementById('navOverlay');
-        const icon = mobileBtn ? mobileBtn.querySelector('i') : null;
+        let menuOpen = false;
 
-        function openNav() {
-            nav.classList.add('active');
-            overlay.classList.add('active');
-            if (icon) { icon.classList.replace('fa-bars', 'fa-times'); }
-            document.body.style.overflow = 'hidden';
-        }
-        function closeNav() {
-            nav.classList.remove('active');
-            overlay.classList.remove('active');
-            if (icon) { icon.classList.replace('fa-times', 'fa-bars'); }
-            document.body.style.overflow = '';
+        function toggleMenu() {
+            if (menuOpen) {
+                navLinks.classList.remove('active');
+                overlay.classList.remove('active');
+                document.body.style.overflow = '';
+                menuOpen = false;
+            } else {
+                navLinks.classList.add('active');
+                overlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+                menuOpen = true;
+            }
         }
 
-        if (mobileBtn) {
-            mobileBtn.addEventListener('click', () => nav.classList.contains('active') ? closeNav() : openNav());
+        if (menuBtn) {
+            menuBtn.addEventListener('click', toggleMenu);
         }
         if (overlay) {
-            overlay.addEventListener('click', closeNav);
+            overlay.addEventListener('click', toggleMenu);
         }
-        nav && nav.querySelectorAll('a').forEach(a => a.addEventListener('click', closeNav));
+
+        var links = navLinks.querySelectorAll('a');
+        for (var i = 0; i < links.length; i++) {
+            links[i].addEventListener('click', toggleMenu);
+        }
 
         // Header scroll effect
         const header = document.querySelector('.header');
-        window.addEventListener('scroll', () => {
-            header.classList.toggle('scrolled', window.scrollY > 50);
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
         });
     </script>
 </body>

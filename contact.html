@@ -272,110 +272,143 @@
     </footer>
 
     <script>
-        // ─── API Config ────────────────────────────────────────────────
-        const API_BASE = 'http://localhost:5000/api';
-
-
+        // Update year in footer
         document.getElementById('year').textContent = new Date().getFullYear();
 
-        // Mobile Drawer Toggle
-        const mobileBtn = document.getElementById('mobileMenuBtn');
-        const nav = document.querySelector('.nav-links');
+        // Mobile menu toggle
+        const menuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.querySelector('.nav-links');
         const overlay = document.getElementById('navOverlay');
-        const icon = mobileBtn ? mobileBtn.querySelector('i') : null;
+        let menuOpen = false;
 
-        function openNav() {
-            nav.classList.add('active');
-            overlay.classList.add('active');
-            if (icon) { icon.classList.replace('fa-bars', 'fa-times'); }
-            document.body.style.overflow = 'hidden';
-        }
-        function closeNav() {
-            nav.classList.remove('active');
-            overlay.classList.remove('active');
-            if (icon) { icon.classList.replace('fa-times', 'fa-bars'); }
-            document.body.style.overflow = '';
+        function toggleMenu() {
+            if (menuOpen) {
+                navLinks.classList.remove('active');
+                overlay.classList.remove('active');
+                document.body.style.overflow = '';
+                menuOpen = false;
+            } else {
+                navLinks.classList.add('active');
+                overlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+                menuOpen = true;
+            }
         }
 
-        if (mobileBtn) {
-            mobileBtn.addEventListener('click', () => nav.classList.contains('active') ? closeNav() : openNav());
+        if (menuBtn) {
+            menuBtn.addEventListener('click', toggleMenu);
         }
-        if (overlay) { overlay.addEventListener('click', closeNav); }
-        nav && nav.querySelectorAll('a').forEach(a => a.addEventListener('click', closeNav));
 
-        // ─── Reservation Form → POST /api/reservations ─────────────────
+        if (overlay) {
+            overlay.addEventListener('click', toggleMenu);
+        }
+
+        var navItems = document.querySelectorAll('.nav-links a');
+        for (var i = 0; i < navItems.length; i++) {
+            navItems[i].addEventListener('click', toggleMenu);
+        }
+
+        const API_BASE = 'http://localhost:5000/api';
+
+        // Reservation form
         const form = document.getElementById('reservationForm');
-        const submitBtn = form ? form.querySelector('button[type="submit"]') : null;
-        const successMsg = document.getElementById('formSuccess');
-        const errorMsg = document.getElementById('formError');
 
         if (form) {
-            form.addEventListener('submit', async (e) => {
+            form.addEventListener('submit', function(e) {
                 e.preventDefault();
-                submitBtn.disabled = true;
-                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-                if (errorMsg) errorMsg.style.display = 'none';
 
-                const body = {
+                const submitBtn = form.querySelector('button[type="submit"]');
+                const successDiv = document.getElementById('formSuccess');
+                const errorDiv = document.getElementById('formError');
+
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Sending...';
+
+                const formData = {
                     name: form.querySelector('#name').value,
                     email: form.querySelector('#email').value,
                     phone: form.querySelector('#phone').value,
                     guests: form.querySelector('#guests').value,
                     date: form.querySelector('#date').value,
                     time: form.querySelector('#time').value,
-                    message: form.querySelector('#message').value,
+                    message: form.querySelector('#message').value
                 };
 
-                try {
-                    const res = await fetch(`${API_BASE}/reservations`, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(body),
-                    });
-                    const data = await res.json();
-
+                fetch(API_BASE + '/reservations', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(formData)
+                })
+                .then(function(response) {
+                    return response.json();
+                })
+                .then(function(data) {
                     if (data.success) {
                         form.reset();
                         submitBtn.style.display = 'none';
-                        successMsg.style.display = 'flex';
+                        successDiv.style.display = 'flex';
+                        errorDiv.style.display = 'none';
                     } else {
-                        throw new Error(data.message);
+                        errorDiv.textContent = data.message;
+                        errorDiv.style.display = 'block';
+                        submitBtn.disabled = false;
+                        submitBtn.textContent = 'Confirm Reservation';
                     }
-                } catch (err) {
+                })
+                .catch(function(error) {
+                    console.log('Error:', error);
+                    errorDiv.textContent = 'Could not connect to server';
+                    errorDiv.style.display = 'block';
                     submitBtn.disabled = false;
-                    submitBtn.innerHTML = 'Confirm Reservation <i class="fas fa-arrow-right"></i>';
-                    if (errorMsg) {
-                        errorMsg.textContent = err.message || 'Something went wrong. Please try again.';
-                        errorMsg.style.display = 'block';
-                    }
-                }
+                    submitBtn.textContent = 'Confirm Reservation';
+                });
             });
         }
 
-        // ─── Newsletter Form → POST /api/newsletter ────────────────────
+        // Newsletter form
         const newsletterForm = document.querySelector('.newsletter-form');
         if (newsletterForm) {
-            newsletterForm.addEventListener('submit', async (e) => {
+            newsletterForm.addEventListener('submit', function(e) {
                 e.preventDefault();
+                
                 const emailInput = newsletterForm.querySelector('input[type="email"]');
                 const btn = newsletterForm.querySelector('button');
+                const email = emailInput.value;
+                
                 btn.disabled = true;
-                btn.textContent = '...';
+                btn.textContent = 'Subscribing...';
 
-                try {
-                    const res = await fetch(`${API_BASE}/newsletter`, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ email: emailInput.value }),
-                    });
-                    const data = await res.json();
-                    btn.textContent = data.success ? '✅ Done!' : data.message;
-                    if (data.success) emailInput.value = '';
-                } catch {
-                    btn.textContent = '❌ Error';
-                } finally {
-                    setTimeout(() => { btn.disabled = false; btn.textContent = 'Subscribe'; }, 3000);
-                }
+                fetch(API_BASE + '/newsletter', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ email: email })
+                })
+                .then(function(response) {
+                    return response.json();
+                })
+                .then(function(data) {
+                    if (data.success) {
+                        btn.textContent = 'Subscribed!';
+                        emailInput.value = '';
+                    } else {
+                        btn.textContent = 'Error';
+                    }
+                    setTimeout(function() {
+                        btn.disabled = false;
+                        btn.textContent = 'Subscribe';
+                    }, 2000);
+                })
+                .catch(function(error) {
+                    btn.textContent = 'Error';
+                    setTimeout(function() {
+                        btn.disabled = false;
+                        btn.textContent = 'Subscribe';
+                    }, 2000);
+                });
             });
         }
     </script>
