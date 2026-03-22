@@ -98,3 +98,127 @@
     font-size: 0.9rem;
     line-height: 1.6;
 }
+
+/* === Mobile Optimizations === */
+@media (max-width: 992px) {
+    .menu-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .menu {
+        padding: 3rem 0;
+    }
+
+    .menu-filters {
+        gap: 0.5rem;
+        margin-bottom: 2rem;
+    }
+
+    .filter-btn {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.8rem;
+        min-height: 40px;
+        display: flex;
+        align-items: center;
+    }
+
+    .menu-grid {
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+        gap: 1rem;
+    }
+
+    .menu-card-img {
+        height: 180px;
+    }
+
+    .menu-card-content {
+        padding: 1rem;
+    }
+
+    .menu-card-content h4 {
+        font-size: 1.1rem;
+    }
+
+    .price-badge {
+        padding: 0.3rem 0.75rem;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .menu {
+        padding: 2rem 0;
+    }
+
+    .menu-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+
+    .menu-card-img {
+        height: 150px;
+    }
+
+    .menu-card-content {
+        padding: 0.75rem;
+    }
+
+    .menu-card-content h4 {
+        font-size: 1rem;
+        margin-bottom: 0.35rem;
+    }
+
+    .menu-card-content p {
+        font-size: 0.85rem;
+    }
+
+    .filter-btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.75rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .menu-filters {
+        gap: 0.4rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .filter-btn {
+        padding: 0.5rem 0.9rem;
+        font-size: 0.7rem;
+        min-height: 36px;
+    }
+
+    .menu-grid {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+    }
+
+    .menu-card-img {
+        height: 200px;
+    }
+
+    .menu-card-content {
+        padding: 0.75rem;
+    }
+
+    .menu-card-content h4 {
+        font-size: 1rem;
+    }
+
+    .menu-card-content p {
+        font-size: 0.8rem;
+        line-height: 1.5;
+    }
+
+    .price-badge {
+        top: 0.5rem;
+        right: 0.5rem;
+        padding: 0.25rem 0.6rem;
+        font-size: 0.8rem;
+    }
+}
