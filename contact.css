@@ -6,11 +6,11 @@
 
 .contact-content {
     background: var(--white);
-    border-radius: 8px;
+    border-radius: var(--radius);
     overflow: hidden;
     display: grid;
     grid-template-columns: 1fr 1.5fr;
-    border: 1px solid #ddd;
+    box-shadow: var(--shadow-lg);
 }
 
 .contact-info {
@@ -48,7 +48,7 @@
     height: 38px;
     background-color: rgba(255, 255, 255, 0.1);
     color: var(--primary-light);
-    border-radius: 4px;
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -149,6 +149,7 @@
     outline: none;
     border-color: var(--primary);
     background-color: var(--white);
+    box-shadow: 0 0 0 4px rgba(139, 0, 0, 0.1);
 }
 
 .form-group textarea {
